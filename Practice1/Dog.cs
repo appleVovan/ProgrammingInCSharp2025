@@ -31,5 +31,14 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
                 age = value;
             }
         }
+
+        public void MyMethod()
+        {
+            int val = Get_Age();
+            Set_Age(5);
+
+            int val1 = Age;
+            Age = 5;
+        }
     }
 }
