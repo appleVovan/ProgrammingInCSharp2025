@@ -49,7 +49,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
             int val1 = Age;
             Age = 5;
 
-            breed = DogType.Labrador;
+            breed = 4;
 
         }
     }
