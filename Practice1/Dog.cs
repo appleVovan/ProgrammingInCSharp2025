@@ -49,7 +49,17 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
             int val1 = Age;
             Age = 5;
 
-            breed = 4;
+            breed = DogType.Labrador;
+
+            switch (breed)
+            {
+                case DogType.Poodle:
+                    break;
+                case DogType.Labrador:
+                    break;
+                case DogType.Labradoodle:
+                    break;
+            }
 
         }
     }
