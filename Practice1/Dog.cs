@@ -86,6 +86,13 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
                     break;
             }
 
+            Talk("woof");
+
+            Talk(3);
+
+            Talk(3, "bark");
+
+            Talk(3, sit: true);
         }
     }
 }
