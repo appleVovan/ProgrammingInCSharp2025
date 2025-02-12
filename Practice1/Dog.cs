@@ -19,5 +19,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
         {
             age = val;
         }
+
+        public int Age 
+        { 
+            get; 
+            set; 
+        }
     }
 }
