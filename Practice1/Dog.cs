@@ -64,7 +64,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 
         }
 
-        public int Talk(string value)
+        public int Talk(int value)
         {
             return 0;
         }
