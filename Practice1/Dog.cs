@@ -16,6 +16,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
     partial class Dog
     {
         private int age;
+        private DogType breed;
 
         public int Age 
         { 
@@ -36,12 +37,15 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
             {
                 return $"Name: {Name}, age: {Age}";
             }
-        } 
+        }
+
+        public DogType Breed { get => breed; set => breed = value; }
 
         public void MyMethod()
         {
             int val1 = Age;
             Age = 5;
+
         }
     }
 }
