@@ -27,7 +27,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
         { 
             get
             {
-                return $"{Name} {Age}";
+                return $"Name: {Name}, age: {Age}";
             }
         } 
 
