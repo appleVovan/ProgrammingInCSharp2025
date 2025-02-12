@@ -59,6 +59,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 
         }
 
+        public void Talk(string value)
+        {
+
+        }
+
         public void MyMethod()
         {
             int val1 = Age;
