@@ -8,6 +8,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 {
     partial class Dog
     {
-        private
+        internal
     }
 }
