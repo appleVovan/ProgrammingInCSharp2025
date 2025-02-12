@@ -10,16 +10,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
     {
         private int age;
 
-        public int Get_Age()
-        {
-            return age;
-        }
-
-        public void Set_Age(int val)
-        {
-            age = val;
-        }
-
         public int Age 
         { 
             get
@@ -34,9 +24,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 
         public void MyMethod()
         {
-            int val = Get_Age();
-            Set_Age(5);
-
             int val1 = Age;
             Age = 5;
         }
