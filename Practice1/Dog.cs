@@ -64,7 +64,12 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 
         }
 
-        public int Talk(int times, string value, bool sit)
+        public int Talk(string value)
+        {
+            return 0;
+        }
+
+        public void Talk(int times, string value, bool sit)
         {
 
         }
