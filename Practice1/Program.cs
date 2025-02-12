@@ -7,4 +7,9 @@
             Console.WriteLine("Hello, World!");
         }
     }
+
+    class Console
+    {
+
+    }
 }
