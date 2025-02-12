@@ -64,12 +64,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 
         }
 
-        public int Talk(int value)
-        {
-            return 0;
-        }
-
-        public void Talk(int times, string value, bool sit)
+        public void Talk(int times, string value = "woof", bool sit = false)
         {
 
         }
