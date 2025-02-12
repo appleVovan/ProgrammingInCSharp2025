@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace KMA.ProgrammingInCSharp2025.Practice1
 {
+    public enum DogType
+    {
+        Poodle,
+        Labrador,
+        Labradoodle
+    }
+
     partial class Dog
     {
         private int age;
