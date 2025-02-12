@@ -1,4 +1,4 @@
-﻿namespace Practive1
+﻿namespace Practice1
 {
     internal class Program
     {
