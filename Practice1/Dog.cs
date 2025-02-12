@@ -22,6 +22,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
             }
         }
 
+        public string Name { get; set; }
+
         public void MyMethod()
         {
             int val1 = Age;
