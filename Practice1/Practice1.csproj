@@ -5,6 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>KMA.ProgrammingInCSharp2025.Practice1</RootNamespace>
   </PropertyGroup>
 
 </Project>
