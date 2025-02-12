@@ -8,9 +8,9 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 {
     public enum DogType
     {
-        Poodle = 10000,
-        Labrador = 10001,
-        Labradoodle = 10005
+        Poodle = 2,
+        Labrador = 4,
+        Labradoodle = 6
     }
 
     partial class Dog
