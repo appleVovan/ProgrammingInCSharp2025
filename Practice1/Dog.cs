@@ -24,6 +24,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
         }
 
         public string Name { get => name; set => name = value; }
+        public int MyProperty { get; private set; } 
 
         public void MyMethod()
         {
