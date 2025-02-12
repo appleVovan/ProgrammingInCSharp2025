@@ -22,8 +22,14 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 
         public int Age 
         { 
-            get; 
-            set; 
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = value;
+            }
         }
     }
 }
