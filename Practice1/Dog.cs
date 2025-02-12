@@ -44,6 +44,21 @@ namespace KMA.ProgrammingInCSharp2025.Practice1
 
         public DogType Breed { get => breed; set => breed = value; }
 
+        private void Foo()
+        {
+
+        }
+
+        internal void Bar()
+        {
+
+        }
+
+        protected void Gas()
+        {
+
+        }
+
         public void MyMethod()
         {
             int val1 = Age;
