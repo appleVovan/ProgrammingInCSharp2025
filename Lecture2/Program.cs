@@ -1,4 +1,5 @@
 ﻿using KMA.ProgrammingInCSharp2025.Lecture2.Copy;
+using KMA.ProgrammingInCSharp2025.Lecture2.Original;
 
 namespace KMA.ProgrammingInCSharp2025.Lecture2
 {
