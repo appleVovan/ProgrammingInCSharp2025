@@ -4,7 +4,11 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            int x = 1000;
+
+            byte y = (byte)x;
+
+            Console.WriteLine(y);
         }
     }
 }
