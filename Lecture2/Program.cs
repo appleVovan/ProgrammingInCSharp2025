@@ -14,6 +14,10 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             mystudent1.FirstName = "Bill";
             mystudent1.LastName = "Gates";
             #endregion
+
+            #region Variable Initialization
+
+            #endregion
         }
     }
 }
