@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KMA.ProgrammingInCSharp2025.Lecture2
+namespace KMA.ProgrammingInCSharp2025.Lecture2.Original
 {
     class Student
     {
