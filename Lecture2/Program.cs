@@ -1,4 +1,6 @@
-﻿namespace KMA.ProgrammingInCSharp2025.Lecture2
+﻿using KMA.ProgrammingInCSharp2025.Lecture2.Copy;
+
+namespace KMA.ProgrammingInCSharp2025.Lecture2
 {
     internal class Program
     {
