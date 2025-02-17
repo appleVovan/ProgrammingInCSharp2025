@@ -1,5 +1,7 @@
 ﻿using KMA.ProgrammingInCSharp2025.Lecture2.Copy;
 using KMA.ProgrammingInCSharp2025.Lecture2.Original;
+using CopyStudent = KMA.ProgrammingInCSharp2025.Lecture2.Copy.Student;
+using OriginalStudent = KMA.ProgrammingInCSharp2025.Lecture2.Original.Student;
 using циферка = System.Int32;
 
 namespace KMA.ProgrammingInCSharp2025.Lecture2
@@ -9,9 +11,9 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
         static void Main(string[] args)
         {
             #region Initialization
-            var mystudent1 = new Copy.Student { FirstName = "Steve", LastName = "Jobs" };
+            var mystudent1 = new CopyStudent { FirstName = "Steve", LastName = "Jobs" };
 
-            Student mystudent2 = new Student();
+            OriginalStudent mystudent2 = new OriginalStudent();
             mystudent1.FirstName = "Bill";
             mystudent1.LastName = "Gates";
             #endregion
