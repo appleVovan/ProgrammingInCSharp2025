@@ -16,7 +16,8 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             #endregion
 
             #region Variable Initialization
-
+            int i, j, k;
+            i = j = k = 100;
             #endregion
         }
     }
