@@ -9,7 +9,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             #region Initialization
             var mystudent1 = new Student { FirstName = "Steve", LastName = "Jobs" };
 
-            Student mystudent2 = new Student();
+            Original.Student mystudent2 = new Original.Student();
             mystudent1.FirstName = "Bill";
             mystudent1.LastName = "Gates";
             #endregion
