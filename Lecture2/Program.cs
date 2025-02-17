@@ -1,5 +1,6 @@
 ﻿using KMA.ProgrammingInCSharp2025.Lecture2.Copy;
 using KMA.ProgrammingInCSharp2025.Lecture2.Original;
+using циферка = System.Int32;
 
 namespace KMA.ProgrammingInCSharp2025.Lecture2
 {
@@ -16,7 +17,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             #endregion
 
             #region Variable Initialization
-            int i, j, k;
+            циферка i, j, k;
             i = j = k = 100;
             #endregion
         }
