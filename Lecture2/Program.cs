@@ -22,6 +22,10 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             циферка i, j, k;
             i = j = k = 100;
             #endregion
+
+            #region New Line
+            string tempVar = "My name is Volodymyr.\nMy age is 30.";
+            #endregion
         }
     }
 }
