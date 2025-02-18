@@ -30,7 +30,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             string str1 = "Volodymyr";
             string str2 = "Volodymyr";
 
-            if (mystudent1 == mystudent3)
+            if (mystudent1.Equals(mystudent3))
             {
 
             }
