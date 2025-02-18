@@ -5,11 +5,11 @@
         static void Main(string[] args)
         {
             int myInt = 5;
-            MyMethodInt(myInt);
+            MyMethodInt(ref myInt);
             Console.WriteLine(myInt);
         }
 
-        static void MyMethodInt(int myInt)
+        static void MyMethodInt(ref int myInt)
         {
             myInt = 6;
             Console.WriteLine(myInt);
