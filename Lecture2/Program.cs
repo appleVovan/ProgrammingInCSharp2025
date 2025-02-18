@@ -24,7 +24,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             #endregion
 
             #region New Line
-            string tempVar = "My name is Volodymyr.\nMy age is 30.";
+            string tempVar = "My name is Volodymyr." + Environment.NewLine + "My age is 30.";
             #endregion
         }
     }
