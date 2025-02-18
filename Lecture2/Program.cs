@@ -25,6 +25,14 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
 
             #region New Line
             string tempVar = "My name is Volodymyr." + Environment.NewLine + "My age is 30.";
+
+            string str1 = "Volodymyr";
+            string str2 = "Volodymyr";
+
+            if (i == j)
+            {
+
+            }
             #endregion
         }
     }
