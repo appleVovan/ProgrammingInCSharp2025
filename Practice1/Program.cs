@@ -4,11 +4,15 @@
     {
         static void Main(string[] args)
         {
-            int x = 1000;
+            int myInt = 5;
+            MyMethodInt(myInt);
+            Console.WriteLine(myInt);
+        }
 
-            byte y = checked((byte)x);
-
-            Console.WriteLine(y);
+        static void MyMethodInt(int myInt)
+        {
+            myInt = 6;
+            Console.WriteLine(myInt);
         }
     }
 }
