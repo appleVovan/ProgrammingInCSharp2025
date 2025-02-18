@@ -2,17 +2,22 @@
 {
     internal class Program
     {
+        class MyClass
+        {
+            public int MyProperty { get; set; }
+        }
         static void Main(string[] args)
         {
-            int myInt;
-            MyMethodInt(out myInt);
-            Console.WriteLine(myInt);
+            MyClass myObject = new MyClass();
+            myObject.MyProperty = 5;
+            MyMethodObject(myObject);
+            Console.WriteLine(myObject.MyProperty);
         }
 
-        static void MyMethodInt(out int myInt)
+        static void MyMethodObject(MyClass myObject)
         {
-            myInt = 6;
-            Console.WriteLine(myInt);
+            myObject.MyProperty = 6;
+            Console.WriteLine(myObject.MyProperty);
         }
     }
 }
