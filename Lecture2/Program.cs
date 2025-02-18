@@ -12,6 +12,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
         {
             #region Initialization
             var mystudent1 = new CopyStudent { FirstName = "Steve", LastName = "Jobs" };
+            var mystudent3 = new CopyStudent { FirstName = "Steve", LastName = "Jobs" };
 
             OriginalStudent mystudent2 = new OriginalStudent();
             mystudent1.FirstName = "Bill";
@@ -29,7 +30,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             string str1 = "Volodymyr";
             string str2 = "Volodymyr";
 
-            if (i == j)
+            if (mystudent1 == mystudent3)
             {
 
             }
