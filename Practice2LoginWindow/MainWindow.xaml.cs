@@ -28,7 +28,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            ((Grid)this.Content).Children[1]
+            But3.Text += "Clicked";
+            But3.Width *= 1.1;
         }
     }
 }
