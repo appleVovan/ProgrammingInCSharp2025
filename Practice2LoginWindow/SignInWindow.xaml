@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow"
         mc:Ignorable="d"
-        Title="SignInWindow" Height="240" Width="300">
+        Title="SignInWindow" Height="240" Width="300" MinHeight="230" MinWidth="200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -19,9 +19,9 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Login" FontSize="9"></Label>
+        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Login" FontSize="9" Margin="5,5,5,2" Foreground="Gray"></TextBlock>
         <TextBox Name="TbLogin" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Margin="5,0,5,5"></TextBox>
-        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Password" FontSize="9"></Label>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Password" FontSize="9" Margin="5,5,5,2" Foreground="Gray"></TextBlock>
         <PasswordBox Name="PbPassword" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Margin="5,0,5,5"></PasswordBox>
         <Button Name="BSignIn" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign In"></Button>
         <Button Name="BSignUp" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign Up"></Button>
