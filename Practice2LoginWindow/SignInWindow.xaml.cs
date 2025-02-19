@@ -26,17 +26,29 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
 
         private void BSignIn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (String.IsNullOrWhiteSpace(TbLogin.Text) || String.IsNullOrWhiteSpace(PbPassword.Password))
+            {
+                MessageBox.Show("Login or password is empty");
+                return;
+            }
+            MessageBox.Show($"Login successful for user {TbLogin.Text}");
+            Close();
         }
 
         private void BSignUp_Click(object sender, RoutedEventArgs e)
         {
-
+            if (String.IsNullOrWhiteSpace(TbLogin.Text) || String.IsNullOrWhiteSpace(PbPassword.Password))
+            {
+                MessageBox.Show("Login or password is empty");
+                return;
+            }
+            MessageBox.Show($"User with name {TbLogin.Text} was created!");
+            Close();
         }
 
         private void BCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            Environment.Exit(0);
         }
     }
 }
