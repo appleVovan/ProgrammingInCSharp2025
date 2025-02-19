@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Practice2LoginWindow
+namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Practice2LoginWindow
+namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
 {
     /// <summary>
     /// Interaction logic for App.xaml
