@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Button></Button>
-    <Button></Button>
+    <Grid>
+        <Button></Button>
+        <Button></Button>
+    </Grid>
 </Window>
