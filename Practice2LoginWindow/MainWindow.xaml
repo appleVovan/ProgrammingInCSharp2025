@@ -17,5 +17,6 @@
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Button>But1</Button>
     </Grid>
 </Window>
