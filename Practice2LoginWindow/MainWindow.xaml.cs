@@ -20,5 +20,10 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
