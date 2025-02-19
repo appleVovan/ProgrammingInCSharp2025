@@ -20,16 +20,5 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            But3.Text += "Clicked";
-            But3.Width *= 1.1;
-        }
     }
 }
