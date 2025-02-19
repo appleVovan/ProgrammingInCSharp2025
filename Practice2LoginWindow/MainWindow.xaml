@@ -20,7 +20,9 @@
         <Button Grid.Row="0" Grid.Column="0" Height="50" Width="100" Margin="10">But1</Button>
         <Button Grid.Row="1" Grid.Column="0" Height="50" Width="100" Margin="10,20" Content="But2" VerticalAlignment="Bottom"></Button>
         <Button Grid.Row="2" Grid.Column="1" Height="50" Width="100" Margin="50,90,100,110" Grid.ColumnSpan="2" HorizontalAlignment="Left">
-            <Button Height="20" Width="20"></Button>
+            <Button Height="20" Width="20">
+                <Button Height="10" Width="10"></Button>
+            </Button>
         </Button>
     </Grid>
 </Window>
