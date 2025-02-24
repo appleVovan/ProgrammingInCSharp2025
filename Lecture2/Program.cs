@@ -36,8 +36,14 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             }
             #endregion
 
-            if (SaveToServer() || SaveLocalCopy())
-            {           
+            if (SaveToServer())
+            {
+            }
+            else if (SaveToServer())
+            {
+            }
+            else
+            {
             }
         }
 
