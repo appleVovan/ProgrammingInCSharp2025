@@ -11,7 +11,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Caption" FontSize="9" Margin="5,5,5,2" Foreground="Gray"></TextBlock>
-        <TextBox x:Name="TbValue" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,0,5,5"></TextBox>
+        <TextBlock Name="TbCaption" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Caption" FontSize="9" Margin="5,5,5,2" Foreground="Gray"></TextBlock>
+        <TextBox Name="TbValue" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,0,5,5"></TextBox>
     </Grid>
 </UserControl>
