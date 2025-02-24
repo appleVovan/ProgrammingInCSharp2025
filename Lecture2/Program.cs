@@ -39,11 +39,14 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
             if (SaveToServer())
             {
             }
-            else if (SaveToServer())
-            {
-            }
             else
             {
+                if (SaveToServer())
+                {
+                }
+                else
+                {
+                }
             }
         }
 
