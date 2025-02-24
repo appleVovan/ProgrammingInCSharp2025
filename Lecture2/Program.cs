@@ -35,6 +35,20 @@ namespace KMA.ProgrammingInCSharp2025.Lecture2
 
             }
             #endregion
+
+            if (SaveToServer() || SaveLocalCopy())
+            {           
+            }
+        }
+
+        private static bool SaveLocalCopy()
+        {
+            return true;
+        }
+
+        private static bool SaveToServer()
+        {
+            return true;
         }
     }
 }
