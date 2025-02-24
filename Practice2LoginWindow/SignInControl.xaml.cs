@@ -33,7 +33,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
                 return;
             }
             MessageBox.Show($"Login successful for user {TbLogin.Text}");
-            Close();
         }
 
         private void BSignUp_Click(object sender, RoutedEventArgs e)
@@ -44,7 +43,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
                 return;
             }
             MessageBox.Show($"User with name {TbLogin.Text} was created!");
-            Close();
         }
 
         private void BCancel_Click(object sender, RoutedEventArgs e)
