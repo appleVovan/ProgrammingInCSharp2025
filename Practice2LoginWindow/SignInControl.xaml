@@ -7,6 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Login" FontSize="9" Margin="5,5,5,2" Foreground="Gray"></TextBlock>
+        <TextBox Name="TbLogin" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Margin="5,0,5,5"></TextBox>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Password" FontSize="9" Margin="5,5,5,2" Foreground="Gray"></TextBlock>
+        <PasswordBox Name="PbPassword" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Margin="5,0,5,5"></PasswordBox>
+        <Button Name="BSignIn" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign In" Click="BSignIn_Click"></Button>
+        <Button Name="BSignUp" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign Up" Click="BSignUp_Click"></Button>
+        <Button Name="BCancel" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Cancel" Click="BCancel_Click"></Button>
     </Grid>
 </UserControl>
