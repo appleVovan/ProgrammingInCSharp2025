@@ -32,6 +32,18 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Tools.Controls
             }
         }
 
+        public string Text
+        {
+            get
+            {
+                return TbValue.Text;
+            }
+            set
+            {
+                TbValue.Text = value;
+            }
+        }
+
         public TextBoxWithCaption()
         {
             InitializeComponent();
