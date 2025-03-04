@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,14 +19,20 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
     /// <summary>
     /// Interaction logic for SignInControl.xaml
     /// </summary>
-    public partial class SignInControl : UserControl
+    public partial class SignInControl : UserControl, INotifyPropertyChanged
     {
         private string _login;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public string Login
         {
             get { return _login; }
-            set { _login = value; }
+            set 
+            { 
+                _login = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Login"));
+            }
         }
 
         public SignInControl()
@@ -39,6 +46,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
             if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(PbPassword.Password))
             {
                 MessageBox.Show("Login or password is empty");
+                Login = "EMPTY!!!";
                 return;
             }
             MessageBox.Show($"Login successful for user {Login}");
