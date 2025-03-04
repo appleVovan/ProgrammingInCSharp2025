@@ -19,8 +19,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <controls:TextBoxWithCaption Grid.Row="0" Grid.ColumnSpan="2" Caption="Login" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"></controls:TextBoxWithCaption>
-        <PasswordBox Name="PbPassword" Grid.Row="1" PasswordChanged="PasswordBox_PasswordChanged"></PasswordBox>
-        <!--<controls:PasswordBoxWithCaption x:Name="PbPassword" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Caption="Password"></controls:PasswordBoxWithCaption>-->
+        <controls:PasswordBoxWithCaption x:Name="PbPassword" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Caption="Password" PasswordChanged="PasswordBox_PasswordChanged"></controls:PasswordBoxWithCaption>
         <Button Name="BSignIn" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign In" Click="BSignIn_Click"></Button>
         <Button Name="BSignUp" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign Up" Click="BSignUp_Click"></Button>
         <Button Name="BCancel" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Cancel" Click="BCancel_Click"></Button>
