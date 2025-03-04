@@ -20,6 +20,14 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
     /// </summary>
     public partial class SignInControl : UserControl
     {
+        private string _login;
+
+        public string Login
+        {
+            get { return _login; }
+            set { _login = value; }
+        }
+
         public SignInControl()
         {
             InitializeComponent();
@@ -27,22 +35,22 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
 
         private void BSignIn_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(TbLogin.Text) || String.IsNullOrWhiteSpace(PbPassword.Password))
+            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(PbPassword.Password))
             {
                 MessageBox.Show("Login or password is empty");
                 return;
             }
-            MessageBox.Show($"Login successful for user {TbLogin.Text}");
+            MessageBox.Show($"Login successful for user {Login}");
         }
 
         private void BSignUp_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(TbLogin.Text) || String.IsNullOrWhiteSpace(PbPassword.Password))
+            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(PbPassword.Password))
             {
                 MessageBox.Show("Login or password is empty");
                 return;
             }
-            MessageBox.Show($"User with name {TbLogin.Text} was created!");
+            MessageBox.Show($"User with name {Login} was created!");
         }
 
         private void BCancel_Click(object sender, RoutedEventArgs e)
