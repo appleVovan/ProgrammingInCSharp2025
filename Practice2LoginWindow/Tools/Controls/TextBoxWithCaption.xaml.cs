@@ -20,28 +20,18 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Tools.Controls
     /// </summary>
     public partial class TextBoxWithCaption : UserControl
     {
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(TextBoxWithCaption), new PropertyMetadata(null));
+
         public string Caption 
         { 
-            get
-            {
-                return TbCaption.Text;
-            }
-            set
-            {
-                TbCaption.Text = value;
-            }
+            get => TbCaption.Text;
+            set => TbCaption.Text = value;
         }
 
         public string Text
         {
-            get
-            {
-                return TbValue.Text;
-            }
-            set
-            {
-                TbValue.Text = value;
-            }
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
         public TextBoxWithCaption()
