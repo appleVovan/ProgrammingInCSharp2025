@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
     class SignInViewModel
     {
+        private UserCandidate _user = new UserCandidate();
     }
 }
