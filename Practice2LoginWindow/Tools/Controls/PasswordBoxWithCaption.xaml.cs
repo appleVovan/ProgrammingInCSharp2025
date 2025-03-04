@@ -20,6 +20,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Tools.Controls
     /// </summary>
     public partial class PasswordBoxWithCaption : UserControl
     {
+        public event EventHandler<RoutedEventArgs> PasswordChanged;
         public string Caption 
         { 
             get
@@ -47,6 +48,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Tools.Controls
         public PasswordBoxWithCaption()
         {
             InitializeComponent();
+        }
+
+        private void PbValue_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            PasswordChanged?.Invoke(sender, e);
         }
     }
 }
