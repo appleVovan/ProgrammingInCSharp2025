@@ -31,6 +31,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
         public SignInControl()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void BSignIn_Click(object sender, RoutedEventArgs e)
