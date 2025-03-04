@@ -14,12 +14,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
+namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
 {
     /// <summary>
     /// Interaction logic for SignInControl.xaml
     /// </summary>
-    public partial class SignInControl : UserControl
+    public partial class SignInView : UserControl
     {
         private string _login;
         private string _password;
@@ -35,7 +35,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
             set => _password = value;
         }
 
-        public SignInControl()
+        public SignInView()
         {
             InitializeComponent();
             DataContext = this;

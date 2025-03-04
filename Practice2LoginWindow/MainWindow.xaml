@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow"
+        xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="230" Width="300" MinHeight="220" MinWidth="200">
     <Grid>
-        <local:SignInControl></local:SignInControl>
+        <local:SignInView></local:SignInView>
     </Grid>
 </Window>
