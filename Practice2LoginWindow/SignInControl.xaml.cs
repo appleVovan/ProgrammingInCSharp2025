@@ -19,20 +19,20 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
     /// <summary>
     /// Interaction logic for SignInControl.xaml
     /// </summary>
-    public partial class SignInControl : UserControl, INotifyPropertyChanged
+    public partial class SignInControl : UserControl
     {
         private string _login;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
+        private string _password;
 
         public string Login
         {
-            get { return _login; }
-            set 
-            { 
-                _login = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Login"));
-            }
+            get => _login;
+            set => _login = value;
+        }
+        public string Password
+        {
+            get => _password;
+            set => _password = value;
         }
 
         public SignInControl()
@@ -43,10 +43,9 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
 
         private void BSignIn_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(PbPassword.Password))
+            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
             {
                 MessageBox.Show("Login or password is empty");
-                Login = "EMPTY!!!";
                 return;
             }
             MessageBox.Show($"Login successful for user {Login}");
@@ -54,7 +53,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
 
         private void BSignUp_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(PbPassword.Password))
+            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
             {
                 MessageBox.Show("Login or password is empty");
                 return;
