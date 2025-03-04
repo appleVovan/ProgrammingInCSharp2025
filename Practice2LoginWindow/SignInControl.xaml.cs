@@ -65,5 +65,10 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
         {
             Environment.Exit(0);
         }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            Password = PbPassword.Password;
+        }
     }
 }
