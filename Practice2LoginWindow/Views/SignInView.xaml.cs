@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Models;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -21,6 +23,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
     /// </summary>
     public partial class SignInView : UserControl
     {
+        private SignInViewModel _viewModel;
         private string _login;
         private string _password;
 
@@ -38,7 +41,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
         public SignInView()
         {
             InitializeComponent();
-            DataContext = this;
+            DataContext = _viewModel = new SignInViewModel();
         }
 
         private void BSignIn_Click(object sender, RoutedEventArgs e)
@@ -68,7 +71,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            Password = PbPassword.Password;
+            _viewModel.Password = PbPassword.Password;
         }
     }
 }
