@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox Text="{Binding Login}"></TextBox>
+        <TextBox Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <!--<controls:TextBoxWithCaption x:Name="TbLogin" Grid.Row="0" Grid.ColumnSpan="2" Caption="Login"></controls:TextBoxWithCaption>-->
         <controls:PasswordBoxWithCaption x:Name="PbPassword" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Caption="Password"></controls:PasswordBoxWithCaption>
         <Button Name="BSignIn" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign In" Click="BSignIn_Click"></Button>
