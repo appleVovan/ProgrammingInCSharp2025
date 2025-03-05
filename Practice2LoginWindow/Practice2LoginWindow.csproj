@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Tools\Controls\PasswordBoxWithCaption.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
