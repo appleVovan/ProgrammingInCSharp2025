@@ -23,7 +23,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             set 
             { 
                 _user.Login = value;
-                _signInCommand.NotifyCanExecuteChanged();
+                UpdateCanExecute();
             }
         }
         public string Password
@@ -32,7 +32,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             set 
             { 
                 _user.Password = value;
-                _signInCommand.NotifyCanExecuteChanged();
+                UpdateCanExecute();
             }
         }
 
@@ -56,7 +56,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         {
             get
             {
-                return _signUpCommand ??= new RelayCommand(() => Environment.Exit(0));
+                return _cancellCommand ??= new RelayCommand(() => Environment.Exit(0));
             }
         }
 
@@ -73,6 +73,12 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         private bool CanExecute()
         {
             return !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password);
+        }
+
+        private void UpdateCanExecute()
+        {
+            _signInCommand.NotifyCanExecuteChanged();
+            _signUpCommand.NotifyCanExecuteChanged();
         }
     }
 }
