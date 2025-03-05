@@ -24,49 +24,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
     public partial class SignInView : UserControl
     {
         private SignInViewModel _viewModel;
-        private string _login;
-        private string _password;
-
-        public string Login
-        {
-            get => _login;
-            set => _login = value;
-        }
-        public string Password
-        {
-            get => _password;
-            set => _password = value;
-        }
 
         public SignInView()
         {
             InitializeComponent();
             DataContext = _viewModel = new SignInViewModel();
-        }
-
-        private void BSignIn_Click(object sender, RoutedEventArgs e)
-        {
-            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
-            {
-                MessageBox.Show("Login or password is empty");
-                return;
-            }
-            MessageBox.Show($"Login successful for user {Login}");
-        }
-
-        private void BSignUp_Click(object sender, RoutedEventArgs e)
-        {
-            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
-            {
-                MessageBox.Show("Login or password is empty");
-                return;
-            }
-            MessageBox.Show($"User with name {Login} was created!");
-        }
-
-        private void BCancel_Click(object sender, RoutedEventArgs e)
-        {
-            Environment.Exit(0);
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
