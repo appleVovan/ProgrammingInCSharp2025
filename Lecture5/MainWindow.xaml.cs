@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,7 +35,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture5
             set 
             { 
                 _firstName = value; 
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FirstName"));
+                OnPropertyChanged("FirstName");
             }
         }
         
@@ -47,7 +48,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture5
             set 
             { 
                 _lastName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LastName"));
+                OnPropertyChanged("LastName");
             }
         }
 
@@ -58,6 +59,10 @@ namespace KMA.ProgrammingInCSharp2025.Lecture5
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        private void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
     }
 }
