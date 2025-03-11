@@ -30,7 +30,12 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
 
         private void ToSignIn()
         {
-            Content = new SignInView(ToSignUp);
+            Content = new SignInView(ToSignUp, ToMain);
+        }
+
+        private void ToMain()
+        {
+            Content = new MainView();
         }
     }
 }
