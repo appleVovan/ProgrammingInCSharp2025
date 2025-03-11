@@ -10,7 +10,7 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock>First Name: </TextBlock>
-                <TextBox Text="{Binding FirstName}" Width="200"></TextBox>
+                <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock>Last Name: </TextBlock>
@@ -18,7 +18,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock>Full Name: </TextBlock>
-                <TextBlock Text="{Binding FullName}" Width="200"></TextBlock>
+                <TextBlock Text="{Binding FullName, Mode=OneWay}" Width="200"></TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>
