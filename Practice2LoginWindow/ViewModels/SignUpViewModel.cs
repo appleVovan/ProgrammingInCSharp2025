@@ -45,7 +45,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         private void SignUp()
         {
-            MessageBox.Show($"User with name {Login} was created!");
+            MessageBox.Show($"User with name {Login} was created! Please Sign In.");
+            ToSignInCommand.Execute(null);
         }
 
         private bool CanExecute()
