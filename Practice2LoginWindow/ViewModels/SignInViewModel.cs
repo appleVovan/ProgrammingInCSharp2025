@@ -13,6 +13,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
     {
         private UserCandidate _user = new UserCandidate();
 
+        private Action _toMainAction;
+
         public string Login 
         { 
             get { return _user.Login; }
@@ -36,16 +38,18 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         public RelayCommand ToSignUpCommand { get; }
         public RelayCommand CancelCommand {  get; }
 
-        public SignInViewModel(Action toSignUp)
+        public SignInViewModel(Action toSignUp, Action toMain)
         {
             SignInCommand ??= new RelayCommand(SignIn, CanExecute);
             ToSignUpCommand = new RelayCommand(toSignUp);
             CancelCommand ??= new RelayCommand(() => Environment.Exit(0));
+            _toMainAction = toMain;
         }
 
         private void SignIn()
         {
             MessageBox.Show($"Login successful for user {Login}");
+            _toMainAction();
         }
 
         private bool CanExecute()
