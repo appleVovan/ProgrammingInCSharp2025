@@ -35,7 +35,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture5
             set 
             { 
                 _firstName = value; 
-                OnPropertyChanged("FirstName");
+                OnPropertyChanged(nameof(FirstName));
             }
         }
         
@@ -48,7 +48,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture5
             set 
             { 
                 _lastName = value;
-                OnPropertyChanged("LastName");
+                OnPropertyChanged(nameof(LastName));
             }
         }
 
