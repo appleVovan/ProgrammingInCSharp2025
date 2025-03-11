@@ -13,10 +13,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
     {
         private UserCandidate _user = new UserCandidate();
 
-        private RelayCommand _signInCommand;
-        private RelayCommand _toSignUpCommand;
-        private RelayCommand _cancellCommand;
-
         public string Login 
         { 
             get { return _user.Login; }
@@ -36,37 +32,20 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             }
         }
 
-        public RelayCommand SignInCommand
-        {
-            get
-            {
-                return _signInCommand ??= new RelayCommand(SignIn, CanExecute);
-            }
-        }
+        public RelayCommand SignInCommand { get; }
+        public RelayCommand ToSignUpCommand { get; }
+        public RelayCommand CancelCommand {  get; }
 
-        public RelayCommand ToSignUpCommand
+        public SignInViewModel(Action toSignUp)
         {
-            get
-            {
-                return _toSignUpCommand ??= new RelayCommand(ToSignUp, CanExecute);
-            }
-        }
-
-        public RelayCommand CancelCommand
-        {
-            get
-            {
-                return _cancellCommand ??= new RelayCommand(() => Environment.Exit(0));
-            }
+            SignInCommand ??= new RelayCommand(SignIn, CanExecute);
+            ToSignUpCommand = new RelayCommand(toSignUp);
+            CancelCommand ??= new RelayCommand(() => Environment.Exit(0));
         }
 
         private void SignIn()
         {
             MessageBox.Show($"Login successful for user {Login}");
-        }
-
-        private void ToSignUp()
-        {
         }
 
         private bool CanExecute()
@@ -76,7 +55,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         private void UpdateCanExecute()
         {
-            _signInCommand.NotifyCanExecuteChanged();
+            SignInCommand.NotifyCanExecuteChanged();
         }
     }
 }
