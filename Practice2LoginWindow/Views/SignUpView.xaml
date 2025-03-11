@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views.SignInView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow" 
+             xmlns:controls="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Tools.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="230" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controls:TextBoxWithCaption Grid.Row="0" Grid.ColumnSpan="2" Caption="Login" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:PasswordBoxWithCaption x:Name="PbPassword" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Caption="Password" PasswordChanged="PasswordBox_PasswordChanged"></controls:PasswordBoxWithCaption>
+        <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign In" Command="{Binding SignInCommand}"></Button>
+        <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign Up" Command="{Binding SignUpCommand}"></Button>
+        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Cancel" Command="{Binding CancelCommand}"></Button>
+    </Grid>
+</UserControl>
