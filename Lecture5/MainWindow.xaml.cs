@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,27 +24,40 @@ namespace KMA.ProgrammingInCSharp2025.Lecture5
         }
     }
 
-    class UserViewModel
+    class UserViewModel : INotifyPropertyChanged
     {
         private string _firstName = "Volodymyr";
 
         public string FirstName
         {
             get { return _firstName; }
-            set { _firstName = value; }
+            set 
+            { 
+                _firstName = value; 
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FirstName"));
+            }
         }
         
         private string _lastName = "Yablonskyi";
 
+        
         public string LastName
         {
             get { return _lastName; }
-            set { _lastName = value; }
+            set 
+            { 
+                _lastName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LastName"));
+            }
         }
 
         public string FullName
         {
             get { return $"{_firstName} {_lastName}"; }
         }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+
     }
 }
