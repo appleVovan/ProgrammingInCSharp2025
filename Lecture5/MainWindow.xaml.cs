@@ -25,7 +25,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture5
 
     class UserViewModel
     {
-        private string _firstName;
+        private string _firstName = "Volodymyr";
 
         public string FirstName
         {
@@ -33,7 +33,7 @@ namespace KMA.ProgrammingInCSharp2025.Lecture5
             set { _firstName = value; }
         }
         
-        private string _lastName;
+        private string _lastName = "Yablonskyi";
 
         public string LastName
         {
