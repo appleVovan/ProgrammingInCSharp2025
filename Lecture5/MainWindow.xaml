@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>First Name: </TextBlock>
+                <TextBox Text="{Binding FirstName}" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Last Name: </TextBlock>
+                <TextBox Text="{Binding LastName}" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Full Name: </TextBlock>
+                <TextBlock Text="{Binding FullName}" Width="200"></TextBlock>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
