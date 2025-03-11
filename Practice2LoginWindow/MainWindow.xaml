@@ -6,7 +6,4 @@
         xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="230" Width="300" MinHeight="220" MinWidth="200">
-    <Grid>
-        <local:SignInView></local:SignInView>
-    </Grid>
 </Window>
