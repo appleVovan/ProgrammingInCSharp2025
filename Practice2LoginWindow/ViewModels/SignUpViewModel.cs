@@ -9,11 +9,11 @@ using System.Windows;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    class SignInViewModel
+    class SignUpViewModel
     {
         private UserCandidate _user = new UserCandidate();
 
-        private RelayCommand _signInCommand;
+        private RelayCommand _toSignInCommand;
         private RelayCommand _signUpCommand;
         private RelayCommand _cancellCommand;
 
@@ -36,11 +36,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             }
         }
 
-        public RelayCommand SignInCommand
+        public RelayCommand ToSignInCommand
         {
             get
             {
-                return _signInCommand ??= new RelayCommand(SignIn, CanExecute);
+                return _toSignInCommand ??= new RelayCommand(ToSignIn, CanExecute);
             }
         }
 
@@ -60,9 +60,9 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             }
         }
 
-        private void SignIn()
+        private void ToSignIn()
         {
-            MessageBox.Show($"Login successful for user {Login}");
+            
         }
 
         private void SignUp()
@@ -77,7 +77,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         private void UpdateCanExecute()
         {
-            _signInCommand.NotifyCanExecuteChanged();
             _signUpCommand.NotifyCanExecuteChanged();
         }
     }

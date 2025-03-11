@@ -21,14 +21,14 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
     /// <summary>
     /// Interaction logic for SignInControl.xaml
     /// </summary>
-    public partial class SignInView : UserControl
+    public partial class SignUpView : UserControl
     {
-        private SignInViewModel _viewModel;
+        private SignUpViewModel _viewModel;
 
-        public SignInView()
+        public SignUpView()
         {
             InitializeComponent();
-            DataContext = _viewModel = new SignInViewModel();
+            DataContext = _viewModel = new SignUpViewModel();
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
