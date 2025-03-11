@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,17 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
         public MainWindow()
         {
             InitializeComponent();
+            ToSignIn();
+        }
+
+        private void ToSignUp()
+        {
+            Content = new SignUpView(ToSignIn);
+        }
+
+        private void ToSignIn()
+        {
+            Content = new SignInView(ToSignUp);
         }
     }
 }
