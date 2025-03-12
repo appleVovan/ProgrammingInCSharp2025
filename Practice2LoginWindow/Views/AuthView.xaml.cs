@@ -21,10 +21,9 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
     /// </summary>
     public partial class AuthView : UserControl
     {
-        public AuthView(Action exitNavigation)
+        public AuthView()
         {
             InitializeComponent();
-            DataContext = new AuthViewModel(exitNavigation);
         }
     }
 }
