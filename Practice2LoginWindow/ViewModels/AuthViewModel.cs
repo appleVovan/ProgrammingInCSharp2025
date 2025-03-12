@@ -15,12 +15,14 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
     class AuthViewModel
     {
         private List<IAuthNavigatable> _viewModels = new List<IAuthNavigatable>();
+        private Action _exitNavigation;
 
-        public IAuthNavigatable CurrentViewModel { get; private set; }
+        public IAuthNavigatable? CurrentViewModel { get; private set; }
 
-        public AuthViewModel()
+        public AuthViewModel(Action exitNavigation)
         {
-            
+            _exitNavigation = exitNavigation;
+            Navigate(AuthNavigationType.SignIn);
         }
 
         internal void Navigate(AuthNavigationType type)
@@ -57,7 +59,10 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         private void ExitNavigation()
         {
-            throw new NotImplementedException();
+            _viewModels.Clear();
+            CurrentViewModel = null;
+            Navigate(AuthNavigationType.SignIn);
+            _exitNavigation.Invoke();
         }
     }
 }
