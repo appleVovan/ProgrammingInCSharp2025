@@ -1,4 +1,5 @@
-﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views;
+﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,11 +21,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
         public MainWindow()
         {
             InitializeComponent();
-            Content = new AuthView(ToMain);
-        }
-        private void ToMain()
-        {
-            Content = new MainView();
+            DataContext = new MainWindowViewModel();
         }
     }
 }
