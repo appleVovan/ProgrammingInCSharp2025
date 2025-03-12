@@ -59,7 +59,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                         viewModel = new AuthViewModel(() => Navigate(MainNavigationType.Main));
                         break;
                     case MainNavigationType.Main:
-                        viewModel = new MainViewModel(() => Navigate(MainNavigationType.Auth));
+                        viewModel = new MainViewModel(ExitNavigation);
                         break;
                     default:
                         return null;

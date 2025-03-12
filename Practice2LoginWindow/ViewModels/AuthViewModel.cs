@@ -14,7 +14,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         SignIn,
         SignUp
     }
-    class AuthViewModel : INotifyPropertyChanged
+    class AuthViewModel : INotifyPropertyChanged, IMainNavigatable
     {
         private List<IAuthNavigatable> _viewModels = new List<IAuthNavigatable>();
         private Action _exitNavigation;
@@ -31,6 +31,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 OnProperyChanged();
             }
         }
+
+        public MainNavigationType ViewModelType => MainNavigationType.Auth;
 
         public AuthViewModel(Action exitNavigation)
         {
