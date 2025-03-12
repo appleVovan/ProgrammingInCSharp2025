@@ -33,12 +33,17 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             IAuthNavigatable viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
             if (viewModel == null)
             {
-                if (type == 1)
-                    viewModel = new SignInViewModel(() => Navigate(2), ExitNavigation);
-                else if (type == 2)
-                    viewModel = new SignUpViewModel(() => Navigate(1));
-                else
-                    return null;
+                switch (type)
+                {
+                    case 1:
+                        viewModel = new SignInViewModel(() => Navigate(2), ExitNavigation);
+                        break;
+                    case 2:
+                        viewModel = new SignUpViewModel(() => Navigate(1));
+                        break;
+                    default:
+                        return null;
+                }
 
                 _viewModels.Add(viewModel);
             }
