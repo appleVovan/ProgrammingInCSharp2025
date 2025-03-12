@@ -6,18 +6,18 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
-{
-    
-    class MainWindowViewModel : INotifyPropertyChanged
+{    
+    abstract class BaseNavigationViewModel<TEnum> : INotifyPropertyChanged where TEnum : Enum
     {
-        private List<INavigatable<MainNavigationType>> _viewModels = new List<INavigatable<MainNavigationType>>();
-        private INavigatable<MainNavigationType>? currentViewModel;
+        private List<INavigatable<TEnum>> _viewModels = new List<INavigatable<TEnum>>();
+        private INavigatable<TEnum>? currentViewModel;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public INavigatable<MainNavigationType>? CurrentViewModel
+        public INavigatable<TEnum>? CurrentViewModel
         {
             get => currentViewModel;
             private set
@@ -27,48 +27,35 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             }
         }
 
-        public MainWindowViewModel()
+        internal void Navigate(TEnum type)
         {
-            Navigate(MainNavigationType.Auth);
-        }
-
-        internal void Navigate(MainNavigationType type)
-        {
-            if (CurrentViewModel != null && CurrentViewModel.ViewModelType == type)
+            if (CurrentViewModel != null && CurrentViewModel.ViewModelType.Equals(type))
                 return;
 
-            INavigatable<MainNavigationType> viewModel = GetViewModel(type);
+            INavigatable<TEnum> viewModel = GetViewModel(type);
             if (viewModel != null)
                 CurrentViewModel = viewModel;
         }
 
-        private INavigatable<MainNavigationType>? GetViewModel(MainNavigationType type)
+        private INavigatable<TEnum>? GetViewModel(TEnum type)
         {
-            INavigatable<MainNavigationType> viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
+            INavigatable<TEnum> viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType.Equals(type));
             if (viewModel == null)
             {
-                switch (type)
-                {
-                    case MainNavigationType.Auth:
-                        viewModel = new AuthViewModel(() => Navigate(MainNavigationType.Main));
-                        break;
-                    case MainNavigationType.Main:
-                        viewModel = new MainViewModel(ExitNavigation);
-                        break;
-                    default:
-                        return null;
-                }
+                viewModel = CreateViewModel(type);
 
-                _viewModels.Add(viewModel);
+                if (viewModel != null)
+                    _viewModels.Add(viewModel);
             }
             return viewModel;
         }
 
-        private void ExitNavigation()
+        protected abstract INavigatable<TEnum>? CreateViewModel(TEnum type);
+
+        protected virtual void ExitNavigation()
         {
             _viewModels.Clear();
             CurrentViewModel = null;
-            Navigate(MainNavigationType.Auth);
         }
 
         private void OnProperyChanged([CallerMemberName]string? name=null)
