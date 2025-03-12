@@ -17,7 +17,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
     class MainWindowViewModel : INotifyPropertyChanged
     {
         private List<IMainNavigatable> _viewModels = new List<IMainNavigatable>();
-        private Action _exitNavigation;
         private IMainNavigatable? currentViewModel;
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -32,9 +31,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             }
         }
 
-        public MainWindowViewModel(Action exitNavigation)
+        public MainWindowViewModel()
         {
-            _exitNavigation = exitNavigation;
             Navigate(MainNavigationType.Auth);
         }
 
@@ -75,7 +73,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             _viewModels.Clear();
             CurrentViewModel = null;
             Navigate(MainNavigationType.Auth);
-            _exitNavigation.Invoke();
         }
 
         private void OnProperyChanged([CallerMemberName]string? name=null)
