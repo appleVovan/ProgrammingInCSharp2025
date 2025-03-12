@@ -16,12 +16,12 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
     }
     class MainWindowViewModel : INotifyPropertyChanged
     {
-        private List<IMainNavigatable> _viewModels = new List<IMainNavigatable>();
-        private IMainNavigatable? currentViewModel;
+        private List<INavigatable<MainNavigationType>> _viewModels = new List<INavigatable<MainNavigationType>>();
+        private INavigatable<MainNavigationType>? currentViewModel;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public IMainNavigatable? CurrentViewModel
+        public INavigatable<MainNavigationType>? CurrentViewModel
         {
             get => currentViewModel;
             private set
@@ -41,14 +41,14 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             if (CurrentViewModel != null && CurrentViewModel.ViewModelType == type)
                 return;
 
-            IMainNavigatable viewModel = GetViewModel(type);
+            INavigatable<MainNavigationType> viewModel = GetViewModel(type);
             if (viewModel != null)
                 CurrentViewModel = viewModel;
         }
 
-        private IMainNavigatable? GetViewModel(MainNavigationType type)
+        private INavigatable<MainNavigationType>? GetViewModel(MainNavigationType type)
         {
-            IMainNavigatable viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
+            INavigatable<MainNavigationType> viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
             if (viewModel == null)
             {
                 switch (type)

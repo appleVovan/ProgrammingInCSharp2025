@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    class SignInViewModel : IAuthNavigatable
+    class SignInViewModel : INavigatable<AuthNavigationType>
     {
         private UserCandidate _user = new UserCandidate();
 

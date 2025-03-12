@@ -14,15 +14,15 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         SignIn,
         SignUp
     }
-    class AuthViewModel : INotifyPropertyChanged, IMainNavigatable
+    class AuthViewModel : INotifyPropertyChanged, INavigatable<MainNavigationType>
     {
-        private List<IAuthNavigatable> _viewModels = new List<IAuthNavigatable>();
+        private List<INavigatable<AuthNavigationType>> _viewModels = new List<INavigatable<AuthNavigationType>>();
         private Action _exitNavigation;
-        private IAuthNavigatable? currentViewModel;
+        private INavigatable<AuthNavigationType>? currentViewModel;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public IAuthNavigatable? CurrentViewModel
+        public INavigatable<AuthNavigationType>? CurrentViewModel
         {
             get => currentViewModel;
             private set
@@ -45,14 +45,14 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             if (CurrentViewModel != null && CurrentViewModel.ViewModelType == type)
                 return;
 
-            IAuthNavigatable viewModel = GetViewModel(type);
+            INavigatable<AuthNavigationType> viewModel = GetViewModel(type);
             if (viewModel != null)
                 CurrentViewModel = viewModel;
         }
 
-        private IAuthNavigatable? GetViewModel(AuthNavigationType type)
+        private INavigatable<AuthNavigationType>? GetViewModel(AuthNavigationType type)
         {
-            IAuthNavigatable viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
+            INavigatable<AuthNavigationType> viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
             if (viewModel == null)
             {
                 switch (type)

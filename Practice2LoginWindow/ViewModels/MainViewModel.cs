@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    class MainViewModel : IMainNavigatable
+    class MainViewModel : INavigatable<MainNavigationType>
     {
         public MainNavigationType ViewModelType => MainNavigationType.Main;
 
