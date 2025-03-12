@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation
 {
-    interface IAuthNavigatable
+    interface IMainNavigatable
     {
-        public AuthNavigationType ViewModelType { get; }
+        public MainNavigationType ViewModelType { get; }
     }
 }
