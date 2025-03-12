@@ -4,7 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views"
+             xmlns:vm="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Content="{Binding CurrentViewModel}">
-    
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:SignInViewModel}">
+            <local:SignInView></local:SignInView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SignUpViewModel}">
+            <local:SignUpView></local:SignUpView>
+        </DataTemplate>
+    </UserControl.Resources>    
 </UserControl>
