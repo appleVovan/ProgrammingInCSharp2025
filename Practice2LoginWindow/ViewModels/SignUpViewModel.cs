@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Models;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Windows;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    class SignUpViewModel
+    class SignUpViewModel : IAuthNavigatable
     {
         private UserCandidate _user = new UserCandidate();
 
@@ -35,6 +36,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         public RelayCommand ToSignInCommand { get; }
         public RelayCommand SignUpCommand { get; }
         public RelayCommand CancelCommand { get; }
+        public int ViewModelType => 2;
 
         public SignUpViewModel(Action toSignIn)
         {
