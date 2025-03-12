@@ -10,70 +10,30 @@ using System.Threading.Tasks;
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
     
-    class MainWindowViewModel : INotifyPropertyChanged
+    class MainWindowViewModel : BaseNavigationViewModel<MainNavigationType>
     {
-        private List<INavigatable<MainNavigationType>> _viewModels = new List<INavigatable<MainNavigationType>>();
-        private INavigatable<MainNavigationType>? currentViewModel;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public INavigatable<MainNavigationType>? CurrentViewModel
-        {
-            get => currentViewModel;
-            private set
-            {
-                currentViewModel = value;
-                OnProperyChanged();
-            }
-        }
-
         public MainWindowViewModel()
         {
             Navigate(MainNavigationType.Auth);
         }
-
-        internal void Navigate(MainNavigationType type)
+                
+        protected override void ExitNavigation()
         {
-            if (CurrentViewModel != null && CurrentViewModel.ViewModelType == type)
-                return;
-
-            INavigatable<MainNavigationType> viewModel = GetViewModel(type);
-            if (viewModel != null)
-                CurrentViewModel = viewModel;
-        }
-
-        private INavigatable<MainNavigationType>? GetViewModel(MainNavigationType type)
-        {
-            INavigatable<MainNavigationType> viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
-            if (viewModel == null)
-            {
-                switch (type)
-                {
-                    case MainNavigationType.Auth:
-                        viewModel = new AuthViewModel(() => Navigate(MainNavigationType.Main));
-                        break;
-                    case MainNavigationType.Main:
-                        viewModel = new MainViewModel(ExitNavigation);
-                        break;
-                    default:
-                        return null;
-                }
-
-                _viewModels.Add(viewModel);
-            }
-            return viewModel;
-        }
-
-        private void ExitNavigation()
-        {
-            _viewModels.Clear();
-            CurrentViewModel = null;
+            base.ExitNavigation();
             Navigate(MainNavigationType.Auth);
         }
 
-        private void OnProperyChanged([CallerMemberName]string? name=null)
+        protected override INavigatable<MainNavigationType>? CreateViewModel(MainNavigationType type)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            switch (type)
+            {
+                case MainNavigationType.Auth:
+                    return new AuthViewModel(() => Navigate(MainNavigationType.Main));
+                case MainNavigationType.Main:
+                    return new MainViewModel(ExitNavigation);
+                default:
+                    return null;
+            }
         }
     }
 }
