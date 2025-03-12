@@ -36,7 +36,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         public RelayCommand ToSignInCommand { get; }
         public RelayCommand SignUpCommand { get; }
         public RelayCommand CancelCommand { get; }
-        public int ViewModelType => 2;
+        public AuthNavigationType ViewModelType => AuthNavigationType.SignUp;
 
         public SignUpViewModel(Action toSignIn)
         {

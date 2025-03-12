@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation
 {
     interface IAuthNavigatable
     {
-        public int ViewModelType { get; }
+        public AuthNavigationType ViewModelType { get; }
     }
 }
