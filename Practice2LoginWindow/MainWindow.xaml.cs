@@ -20,19 +20,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow
         public MainWindow()
         {
             InitializeComponent();
-            ToSignIn();
+            Content = new AuthView(ToMain);
         }
-
-        private void ToSignUp()
-        {
-            Content = new SignUpView(ToSignIn);
-        }
-
-        private void ToSignIn()
-        {
-            Content = new SignInView(ToSignUp, ToMain);
-        }
-
         private void ToMain()
         {
             Content = new MainView();
