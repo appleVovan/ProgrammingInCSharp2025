@@ -9,24 +9,9 @@ using System.Threading.Tasks;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    class AuthViewModel : INotifyPropertyChanged, INavigatable<MainNavigationType>
+    class AuthViewModel : BaseNavigationViewModel<AuthNavigationType>, INavigatable<MainNavigationType>
     {
-        private List<INavigatable<AuthNavigationType>> _viewModels = new List<INavigatable<AuthNavigationType>>();
         private Action _exitNavigation;
-        private INavigatable<AuthNavigationType>? currentViewModel;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public INavigatable<AuthNavigationType>? CurrentViewModel
-        {
-            get => currentViewModel;
-            private set
-            {
-                currentViewModel = value;
-                OnProperyChanged();
-            }
-        }
-
         public MainNavigationType ViewModelType => MainNavigationType.Auth;
 
         public AuthViewModel(Action exitNavigation)
@@ -35,49 +20,24 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             Navigate(AuthNavigationType.SignIn);
         }
 
-        internal void Navigate(AuthNavigationType type)
+        protected override void ExitNavigation()
         {
-            if (CurrentViewModel != null && CurrentViewModel.ViewModelType == type)
-                return;
-
-            INavigatable<AuthNavigationType> viewModel = GetViewModel(type);
-            if (viewModel != null)
-                CurrentViewModel = viewModel;
-        }
-
-        private INavigatable<AuthNavigationType>? GetViewModel(AuthNavigationType type)
-        {
-            INavigatable<AuthNavigationType> viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
-            if (viewModel == null)
-            {
-                switch (type)
-                {
-                    case AuthNavigationType.SignIn:
-                        viewModel = new SignInViewModel(() => Navigate(AuthNavigationType.SignUp), ExitNavigation);
-                        break;
-                    case AuthNavigationType.SignUp:
-                        viewModel = new SignUpViewModel(() => Navigate(AuthNavigationType.SignIn));
-                        break;
-                    default:
-                        return null;
-                }
-
-                _viewModels.Add(viewModel);
-            }
-            return viewModel;
-        }
-
-        private void ExitNavigation()
-        {
-            _viewModels.Clear();
-            CurrentViewModel = null;
+            base.ExitNavigation();
             Navigate(AuthNavigationType.SignIn);
             _exitNavigation.Invoke();
         }
 
-        private void OnProperyChanged([CallerMemberName]string? name=null)
+        protected override INavigatable<AuthNavigationType>? CreateViewModel(AuthNavigationType type)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            switch (type)
+            {
+                case AuthNavigationType.SignIn:
+                    return new SignInViewModel(() => Navigate(AuthNavigationType.SignUp), ExitNavigation);
+                case AuthNavigationType.SignUp:
+                    return new SignUpViewModel(() => Navigate(AuthNavigationType.SignIn));
+                default:
+                    return null;
+            }
         }
     }
 }
