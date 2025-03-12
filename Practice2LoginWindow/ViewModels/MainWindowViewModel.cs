@@ -9,11 +9,7 @@ using System.Threading.Tasks;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    enum MainNavigationType
-    {
-        Auth,
-        Main
-    }
+    
     class MainWindowViewModel : INotifyPropertyChanged
     {
         private List<INavigatable<MainNavigationType>> _viewModels = new List<INavigatable<MainNavigationType>>();
