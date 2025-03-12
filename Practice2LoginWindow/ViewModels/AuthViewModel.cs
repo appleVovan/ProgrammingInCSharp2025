@@ -1,7 +1,9 @@
 ﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,12 +14,23 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         SignIn,
         SignUp
     }
-    class AuthViewModel
+    class AuthViewModel : INotifyPropertyChanged
     {
         private List<IAuthNavigatable> _viewModels = new List<IAuthNavigatable>();
         private Action _exitNavigation;
+        private IAuthNavigatable? currentViewModel;
 
-        public IAuthNavigatable? CurrentViewModel { get; private set; }
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public IAuthNavigatable? CurrentViewModel
+        {
+            get => currentViewModel;
+            private set
+            {
+                currentViewModel = value;
+                OnProperyChanged();
+            }
+        }
 
         public AuthViewModel(Action exitNavigation)
         {
@@ -63,6 +76,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             CurrentViewModel = null;
             Navigate(AuthNavigationType.SignIn);
             _exitNavigation.Invoke();
+        }
+
+        private void OnProperyChanged([CallerMemberName]string? name=null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }
