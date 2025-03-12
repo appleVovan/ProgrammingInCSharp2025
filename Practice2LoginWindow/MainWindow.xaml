@@ -4,6 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views"
+        xmlns:vm="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="230" Width="300" MinHeight="220" MinWidth="200">
+        Title="MainWindow" Height="230" Width="300" MinHeight="220" MinWidth="200" Content="{Binding CurrentViewModel}">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:AuthViewModel}">
+            <local:AuthView></local:AuthView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MainViewModel}">
+            <local:MainView></local:MainView>
+        </DataTemplate>
+    </Window.Resources>
 </Window>
