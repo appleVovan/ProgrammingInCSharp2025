@@ -31,6 +31,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
             DataContext = _viewModel = new SignInViewModel(toSignUp, toMain);
         }
 
+        public SignInView()
+        {
+            InitializeComponent();
+        }
+
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             _viewModel.Password = PbPassword.Password;
