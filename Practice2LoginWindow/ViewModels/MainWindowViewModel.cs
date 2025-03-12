@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    enum AuthNavigationType
+    enum MainNavigationType
     {
-        SignIn,
-        SignUp
+        Auth,
+        Main
     }
-    class AuthViewModel : INotifyPropertyChanged
+    class MainWindowViewModel : INotifyPropertyChanged
     {
-        private List<IAuthNavigatable> _viewModels = new List<IAuthNavigatable>();
+        private List<IMainNavigatable> _viewModels = new List<IMainNavigatable>();
         private Action _exitNavigation;
-        private IAuthNavigatable? currentViewModel;
+        private IMainNavigatable? currentViewModel;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public IAuthNavigatable? CurrentViewModel
+        public IMainNavigatable? CurrentViewModel
         {
             get => currentViewModel;
             private set
@@ -32,34 +32,34 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             }
         }
 
-        public AuthViewModel(Action exitNavigation)
+        public MainWindowViewModel(Action exitNavigation)
         {
             _exitNavigation = exitNavigation;
-            Navigate(AuthNavigationType.SignIn);
+            Navigate(MainNavigationType.Auth);
         }
 
-        internal void Navigate(AuthNavigationType type)
+        internal void Navigate(MainNavigationType type)
         {
             if (CurrentViewModel != null && CurrentViewModel.ViewModelType == type)
                 return;
 
-            IAuthNavigatable viewModel = GetViewModel(type);
+            IMainNavigatable viewModel = GetViewModel(type);
             if (viewModel != null)
                 CurrentViewModel = viewModel;
         }
 
-        private IAuthNavigatable? GetViewModel(AuthNavigationType type)
+        private IMainNavigatable? GetViewModel(MainNavigationType type)
         {
-            IAuthNavigatable viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
+            IMainNavigatable viewModel = _viewModels.FirstOrDefault(vm => vm.ViewModelType == type);
             if (viewModel == null)
             {
                 switch (type)
                 {
-                    case AuthNavigationType.SignIn:
-                        viewModel = new SignInViewModel(() => Navigate(AuthNavigationType.SignUp), ExitNavigation);
+                    case MainNavigationType.Auth:
+                        viewModel = new AuthViewModel(() => Navigate(MainNavigationType.Main));
                         break;
-                    case AuthNavigationType.SignUp:
-                        viewModel = new SignUpViewModel(() => Navigate(AuthNavigationType.SignIn));
+                    case MainNavigationType.Main:
+                        viewModel = new MainViewModel(() => Navigate(MainNavigationType.Auth));
                         break;
                     default:
                         return null;
@@ -74,7 +74,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         {
             _viewModels.Clear();
             CurrentViewModel = null;
-            Navigate(AuthNavigationType.SignIn);
+            Navigate(MainNavigationType.Auth);
             _exitNavigation.Invoke();
         }
 
