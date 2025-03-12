@@ -23,14 +23,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
     /// </summary>
     public partial class SignUpView : UserControl
     {
-        private SignUpViewModel _viewModel;
-
-        public SignUpView(Action toSignIn)
-        {
-            InitializeComponent();
-            DataContext = _viewModel = new SignUpViewModel(toSignIn);
-        }
-
         public SignUpView()
         {
             InitializeComponent();
@@ -38,7 +30,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            _viewModel.Password = PbPassword.Password;
+            ((SignInViewModel)DataContext).Password = PbPassword.Password;
         }
     }
 }
