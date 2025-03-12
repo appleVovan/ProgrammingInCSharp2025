@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
     /// </summary>
     public partial class AuthView : UserControl
     {
-        public AuthView()
+        public AuthView(Action exitNavigation)
         {
             InitializeComponent();
+            DataContext = new AuthViewModel(exitNavigation);
         }
     }
 }
