@@ -12,7 +12,9 @@
 
             //Perform some actions
 
-            myParallelOperation.Join();
+            myParallelOperation.Join(5000);
+
+            myParallelOperation.Abort();
 
             //process results
             Console.WriteLine(worker.OutputPrams);
