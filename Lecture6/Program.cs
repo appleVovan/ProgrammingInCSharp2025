@@ -46,7 +46,10 @@
                 {
                     if (!GetNewTask())
                     {
-                        Thread.Sleep(10000);
+                        for(int i=0; i<10; i++)
+                        { 
+                            Thread.Sleep(1000); 
+                        }                            
                         continue;
                     }
                     //Perform step1
