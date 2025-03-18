@@ -2,13 +2,11 @@
 {
     internal class Program
     {
-        private static Tuple<string, int, double> _inputPrams;
-        private static Tuple<string, int, double> _outputPrams;
         static void Main(string[] args)
         {
-            Thread myParallelOperation = new Thread(MyTask);
+            var worker = new MyBackgroundWorker(new Tuple<string, int, double>("pram", 7, 1.1));
 
-            _inputPrams = new Tuple<string, int, double>("pram", 7, 1.1);
+            Thread myParallelOperation = new Thread(worker.Process);
 
             myParallelOperation.Start();
 
@@ -17,14 +15,27 @@
             myParallelOperation.Join();
 
             //process results
-            Console.WriteLine(_outputPrams);
+            Console.WriteLine(worker.OutputPrams);
         }
 
-        static void MyTask()
+        class MyBackgroundWorker
         {
-            string param = _inputPrams.Item1;
-            //Perform some operations
-            _outputPrams = new Tuple<string, int, double>("result", 3, 0.4);
+            private Tuple<string, int, double> _inputPrams;
+            private Tuple<string, int, double> _outputPrams;
+
+            public Tuple<string, int, double> OutputPrams {  get { return _outputPrams; } }
+
+            public MyBackgroundWorker(Tuple<string, int, double> inputPrams)
+            {
+                _inputPrams = inputPrams;
+            }
+
+            public void Process()
+            {
+                string param = _inputPrams.Item1;
+                //Perform some operations
+                _outputPrams = new Tuple<string, int, double>("result", 3, 0.4);
+            }
         }
     }
 }
