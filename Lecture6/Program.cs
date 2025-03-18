@@ -12,9 +12,9 @@
 
             //Perform some actions
 
-            myParallelOperation.Join(5000);
+            worker.StopWorker();
 
-            myParallelOperation.Abort();
+            myParallelOperation.Join(5000);
 
             //process results
             Console.WriteLine(worker.OutputPrams);
@@ -24,6 +24,7 @@
         {
             private Tuple<string, int, double> _inputPrams;
             private Tuple<string, int, double> _outputPrams;
+            private bool _isRunning = true;
 
             public Tuple<string, int, double> OutputPrams {  get { return _outputPrams; } }
 
@@ -32,11 +33,16 @@
                 _inputPrams = inputPrams;
             }
 
+            public void StopWorker()
+            {
+                _isRunning = false;
+            }
+
             public void Process()
             {
                 string param = _inputPrams.Item1;
 
-                while (true)
+                while (_isRunning)
                 {
                     //Perform some operations
                 }
