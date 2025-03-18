@@ -44,6 +44,8 @@
 
                 while (_isRunning)
                 {
+                    if (!GetNewTask())
+                        continue;
                     //Perform step1
                     if (!_isRunning)
                     {
@@ -65,6 +67,11 @@
                 }
 
                 _outputPrams = new Tuple<string, int, double>("result", 3, 0.4);
+            }
+
+            private bool GetNewTask()
+            {
+                return true;
             }
         }
     }
