@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            var worker = new MyBackgroundWorker(new Tuple<string, int, double>("pram", 7, 1.1));
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
+            var worker = new MyBackgroundWorker(new Tuple<string, int, double>("pram", 7, 1.1), tokenSource.Token);
 
             Thread myParallelOperation = new Thread(worker.Process);
 
@@ -12,7 +13,7 @@
 
             //Perform some actions
 
-            worker.StopWorker();
+            tokenSource.Cancel();
 
             myParallelOperation.Join(5000);
 
@@ -24,25 +25,21 @@
         {
             private Tuple<string, int, double> _inputPrams;
             private Tuple<string, int, double> _outputPrams;
-            private bool _isRunning = true;
+            private readonly CancellationToken _cancellation;
 
             public Tuple<string, int, double> OutputPrams {  get { return _outputPrams; } }
 
-            public MyBackgroundWorker(Tuple<string, int, double> inputPrams)
+            public MyBackgroundWorker(Tuple<string, int, double> inputPrams, CancellationToken cancellation)
             {
                 _inputPrams = inputPrams;
-            }
-
-            public void StopWorker()
-            {
-                _isRunning = false;
+                _cancellation = cancellation;
             }
 
             public void Process()
             {
                 string param = _inputPrams.Item1;
 
-                while (_isRunning)
+                while (!_cancellation.IsCancellationRequested)
                 {
                     if (!GetNewTask())
                     {
@@ -53,19 +50,19 @@
                         continue;
                     }
                     //Perform step1
-                    if (!_isRunning)
+                    if (!_cancellation.IsCancellationRequested)
                     {
                         //Finish Processing
                         break;
                     }
                     //Perform step2
-                    if (!_isRunning)
+                    if (!_cancellation.IsCancellationRequested)
                     {
                         //Finish Processing
                         break;
                     }
                     //Perform step3
-                    if (!_isRunning)
+                    if (!_cancellation.IsCancellationRequested)
                     {
                         //Finish Processing
                         break;
