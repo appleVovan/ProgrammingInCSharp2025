@@ -6,7 +6,7 @@
         {
             Thread myParallelOperation = new Thread(MyTask);
 
-            myParallelOperation.Start();
+            myParallelOperation.Start(new object());
 
             //Perform some actions
 
@@ -15,7 +15,7 @@
             //process results
         }
 
-        static void MyTask()
+        static void MyTask(object obj)
         {
             //Perform some operations
         }
