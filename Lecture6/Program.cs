@@ -44,7 +44,24 @@
 
                 while (_isRunning)
                 {
-                    //Perform some operations
+                    //Perform step1
+                    if (!_isRunning)
+                    {
+                        //Finish Processing
+                        break;
+                    }
+                    //Perform step2
+                    if (!_isRunning)
+                    {
+                        //Finish Processing
+                        break;
+                    }
+                    //Perform step3
+                    if (!_isRunning)
+                    {
+                        //Finish Processing
+                        break;
+                    }
                 }
 
                 _outputPrams = new Tuple<string, int, double>("result", 3, 0.4);
