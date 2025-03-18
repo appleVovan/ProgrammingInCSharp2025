@@ -33,7 +33,12 @@
             public void Process()
             {
                 string param = _inputPrams.Item1;
-                //Perform some operations
+
+                while (true)
+                {
+                    //Perform some operations
+                }
+
                 _outputPrams = new Tuple<string, int, double>("result", 3, 0.4);
             }
         }
