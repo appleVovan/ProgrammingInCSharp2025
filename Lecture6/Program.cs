@@ -45,7 +45,10 @@
                 while (_isRunning)
                 {
                     if (!GetNewTask())
+                    {
+                        Thread.Sleep(10000);
                         continue;
+                    }
                     //Perform step1
                     if (!_isRunning)
                     {
