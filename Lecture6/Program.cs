@@ -7,6 +7,12 @@
             Thread myParallelOperation = new Thread(MyTask);
 
             myParallelOperation.Start();
+
+            //Perform some actions
+
+            myParallelOperation.Join();
+
+            //process results
         }
 
         static void MyTask()
