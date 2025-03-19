@@ -12,7 +12,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
     class SignUpViewModel : INavigatable<AuthNavigationType>
     {
-        private UserCandidate _user = new UserCandidate();
+        private RegistrationUser _user = new RegistrationUser();
 
         public string Login 
         { 
@@ -29,6 +29,24 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             set 
             { 
                 _user.Password = value;
+                UpdateCanExecute();
+            }
+        }
+        public string FirstName
+        {
+            get { return _user.FirstName; }
+            set
+            {
+                _user.FirstName = value;
+                UpdateCanExecute();
+            }
+        }
+        public string LastName
+        {
+            get { return _user.LastName; }
+            set
+            {
+                _user.LastName = value;
                 UpdateCanExecute();
             }
         }
@@ -53,7 +71,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         private bool CanExecute()
         {
-            return !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password);
+            return !String.IsNullOrWhiteSpace(Login) && !String.IsNullOrWhiteSpace(Password) && !String.IsNullOrWhiteSpace(LastName) && !String.IsNullOrWhiteSpace(FirstName);
         }
 
         private void UpdateCanExecute()
