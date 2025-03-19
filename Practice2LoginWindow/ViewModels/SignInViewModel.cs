@@ -49,7 +49,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             _toMainAction = toMain;
         }
 
-        private void SignIn()
+        private async void SignIn()
         {
             if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
                 MessageBox.Show("Login or password is empty");
@@ -60,7 +60,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 User user = null;
                 try
                 {
-                    user = authService.Authenticate(_user);
+                    user = await Task.Run(() => authService.Authenticate(_user));
                 }
                 catch (Exception ex)
                 {
