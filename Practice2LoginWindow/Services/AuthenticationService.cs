@@ -14,6 +14,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services
 
         public User Authenticate(UserCandidate userCandidate)
         {
+            Thread.Sleep(3000);
             if (String.IsNullOrWhiteSpace(userCandidate.Login) || String.IsNullOrWhiteSpace(userCandidate.Password))
                 throw new ArgumentException("Login or Password is empty!");
             DBUser dBUser = Storage.FirstOrDefault(user => user.Login == userCandidate.Login && user.Password == userCandidate.Password);
@@ -26,6 +27,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services
 
         public void RegisterUser(RegistrationUser registrationUser)
         {
+            Thread.Sleep(3000);
             if (String.IsNullOrWhiteSpace(registrationUser.Login) || String.IsNullOrWhiteSpace(registrationUser.Password) || String.IsNullOrWhiteSpace(registrationUser.FirstName) || String.IsNullOrWhiteSpace(registrationUser.LastName))
                 throw new ArgumentException("First Name, Last Name, Login or Password is empty!");
 
