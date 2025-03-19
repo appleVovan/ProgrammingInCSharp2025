@@ -57,7 +57,16 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             {
                 var authService = new AuthenticationService();
 
-                var user = authService.Authenticate(_user);
+                User user = null;
+                try
+                {
+                    user = authService.Authenticate(_user);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Sign in failed: {ex.Message}");
+                    return;
+                }
 
                 MessageBox.Show($"Sign in was successful for user {user.FirstName} {user.LastName}!");
 
