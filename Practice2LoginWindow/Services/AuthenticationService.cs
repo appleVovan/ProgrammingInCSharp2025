@@ -16,17 +16,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services
         {
             if (String.IsNullOrWhiteSpace(userCandidate.Login) || String.IsNullOrWhiteSpace(userCandidate.Password))
                 throw new ArgumentException("Login or Password is empty!");
-            DBUser dBUser = null;
-
-            foreach (DBUser user in Storage)
-            {
-                if (user.Login == userCandidate.Login && user.Password == userCandidate.Password)
-                {
-                    dBUser = user; 
-                    break;
-                }
-            }
-
+            DBUser dBUser = Storage.FirstOrDefault(user => user.Login == userCandidate.Login && user.Password == userCandidate.Password);
+            
             if (dBUser == null)
                 throw new AuthenticationException("Wrong login or password!");
 
