@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views"
         xmlns:vm="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="230" Width="300" MinHeight="220" MinWidth="200" Content="{Binding CurrentViewModel}">
+        Title="MainWindow" MinHeight="230" MinWidth="240" Content="{Binding CurrentViewModel}" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:AuthViewModel}">
             <local:AuthView></local:AuthView>
