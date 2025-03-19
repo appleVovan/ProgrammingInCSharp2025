@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Models;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,8 +51,18 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         private void SignIn()
         {
-            MessageBox.Show($"Login successful for user {Login}");
-            _toMainAction();
+            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
+                MessageBox.Show("Login or password is empty");
+            else
+            {
+                var authService = new AuthenticationService();
+
+                var user = authService.Authenticate(_user);
+
+                MessageBox.Show($"Sign in was successful for user {user.FirstName} {user.LastName}!");
+
+                _toMainAction?.Invoke();
+            }
         }
 
         private bool CanExecute()
