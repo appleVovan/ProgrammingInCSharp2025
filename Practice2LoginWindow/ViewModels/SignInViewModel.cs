@@ -4,18 +4,22 @@ using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    class SignInViewModel : INavigatable<AuthNavigationType>
+    class SignInViewModel : INavigatable<AuthNavigationType>, INotifyPropertyChanged
     {
         private UserCandidate _user = new UserCandidate();
 
         private Action _toMainAction;
+
+        private bool _isEnabled = true;
 
         public string Login
         {
@@ -41,6 +45,16 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         public RelayCommand CancelCommand { get; }
         public AuthNavigationType ViewModelType => AuthNavigationType.SignIn;
 
+        public bool IsEnabled 
+        { 
+            get => _isEnabled;
+            set
+            {
+                _isEnabled = value;
+                OnProperyChanged();
+            }
+        }
+
         public SignInViewModel(Action toSignUp, Action toMain)
         {
             SignInCommand ??= new RelayCommand(SignIn, CanExecute);
@@ -60,12 +74,17 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 User user = null;
                 try
                 {
+                    IsEnabled = false;
                     user = await Task.Run(() => authService.Authenticate(_user));
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Sign in failed: {ex.Message}");
                     return;
+                }
+                finally
+                { 
+                    IsEnabled = true; 
                 }
 
                 MessageBox.Show($"Sign in was successful for user {user.FirstName} {user.LastName}!");
@@ -83,5 +102,14 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         {
             SignInCommand.NotifyCanExecuteChanged();
         }
+
+
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged;
+        private void OnProperyChanged([CallerMemberName] string? name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        } 
+        #endregion
     }
 }
