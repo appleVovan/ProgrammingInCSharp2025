@@ -20,6 +20,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         private Action _toMainAction;
 
         private bool _isEnabled = true;
+        private Visibility _loaderVisibility = Visibility.Collapsed;
 
         public string Login
         {
@@ -55,6 +56,16 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             }
         }
 
+        public Visibility LoaderVisibility
+        {
+            get => _loaderVisibility;
+            set
+            {
+                _loaderVisibility = value;
+                OnProperyChanged();
+            }
+        }
+
         public SignInViewModel(Action toSignUp, Action toMain)
         {
             SignInCommand ??= new RelayCommand(SignIn, CanExecute);
@@ -75,6 +86,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 try
                 {
                     IsEnabled = false;
+                    LoaderVisibility = Visibility.Visible;
                     user = await Task.Run(() => authService.Authenticate(_user));
                 }
                 catch (Exception ex)
@@ -85,6 +97,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 finally
                 { 
                     IsEnabled = true; 
+                    LoaderVisibility = Visibility.Collapsed;
                 }
 
                 MessageBox.Show($"Sign in was successful for user {user.FirstName} {user.LastName}!");
