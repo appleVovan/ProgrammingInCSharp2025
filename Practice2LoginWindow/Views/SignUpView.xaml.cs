@@ -30,7 +30,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            ((SignInViewModel)DataContext).Password = PbPassword.Password;
+            ((SignUpViewModel)DataContext).Password = PbPassword.Password;
         }
     }
 }
