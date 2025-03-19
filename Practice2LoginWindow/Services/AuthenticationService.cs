@@ -23,5 +23,20 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services
 
             return new User(dBUser.Guid, dBUser.Login, dBUser.FirstName, dBUser.LastName);
         }
+
+        public void RegisterUser(RegistrationUser registrationUser)
+        {
+            if (String.IsNullOrWhiteSpace(registrationUser.Login) || String.IsNullOrWhiteSpace(registrationUser.Password) || String.IsNullOrWhiteSpace(registrationUser.FirstName) || String.IsNullOrWhiteSpace(registrationUser.LastName))
+                throw new ArgumentException("First Name, Last Name, Login or Password is empty!");
+
+            DBUser dbUser = Storage.FirstOrDefault(user => user.Login == registrationUser.Login);
+
+            if (dbUser != null)
+                throw new Exception("User with this login already exists!");
+
+            dbUser = new DBUser(registrationUser.Login, registrationUser.Password, registrationUser.FirstName, registrationUser.LastName);
+
+            Storage.Add(dbUser);
+        }
     }
 }
