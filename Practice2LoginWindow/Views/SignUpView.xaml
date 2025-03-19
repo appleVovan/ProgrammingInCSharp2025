@@ -6,9 +6,11 @@
              xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow" 
              xmlns:controls="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Tools.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="230" d:DesignWidth="300">
+             d:DesignHeight="250" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
@@ -18,10 +20,12 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <controls:TextBoxWithCaption Grid.Row="0" Grid.ColumnSpan="2" Caption="Login" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
-        <controls:PasswordBoxWithCaption x:Name="PbPassword" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Caption="Password" PasswordChanged="PasswordBox_PasswordChanged"></controls:PasswordBoxWithCaption>
-        <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign Up" Command="{Binding SignUpCommand}"></Button>
-        <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="To Sign In" Command="{Binding ToSignInCommand}"></Button>
-        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Cancel" Command="{Binding CancelCommand}"></Button>
+        <controls:TextBoxWithCaption Grid.Row="0" Grid.ColumnSpan="2" Caption="First Name" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="1" Grid.ColumnSpan="2" Caption="Last Name" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="2" Grid.ColumnSpan="2" Caption="Login" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:PasswordBoxWithCaption x:Name="PbPassword" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  Caption="Password" PasswordChanged="PasswordBox_PasswordChanged"></controls:PasswordBoxWithCaption>
+        <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Sign Up" Command="{Binding SignUpCommand}"></Button>
+        <Button Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="To Sign In" Command="{Binding ToSignInCommand}"></Button>
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="25" Margin="5" Content="Cancel" Command="{Binding CancelCommand}"></Button>
     </Grid>
 </UserControl>
