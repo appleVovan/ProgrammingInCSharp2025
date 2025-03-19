@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Models;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,8 +66,26 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         private void SignUp()
         {
-            MessageBox.Show($"User with name {Login} was created! Please Sign In.");
-            ToSignInCommand.Execute(null);
+            if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(FirstName) || String.IsNullOrWhiteSpace(LastName))
+                MessageBox.Show("Login, password, first name or last name is empty");
+            else
+            {
+                var authService = new AuthenticationService();
+
+                try
+                {
+                    authService.RegisterUser(_user);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"User creation failed: {ex.Message}");
+                    return;
+                }
+
+                MessageBox.Show($"User was registered. Please Sign In.");
+
+                ToSignInCommand.Execute(null);
+            }
         }
 
         private bool CanExecute()
