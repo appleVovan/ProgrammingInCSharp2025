@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow" 
              xmlns:controls="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Tools.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="230" d:DesignWidth="300">
+             d:DesignHeight="230" d:DesignWidth="300" IsEnabled="{Binding IsEnabled, Mode=OneWay}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
