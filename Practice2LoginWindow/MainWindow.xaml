@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views"
         xmlns:vm="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="230" MinWidth="240" Content="{Binding CurrentViewModel}" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" MinHeight="230" MinWidth="240" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:AuthViewModel}">
             <local:AuthView></local:AuthView>
@@ -15,4 +16,8 @@
             <local:MainView></local:MainView>
         </DataTemplate>
     </Window.Resources>
+    <Grid>
+        <ContentControl Content="{Binding CurrentViewModel, Mode=OneWay}" IsEnabled="{Binding IsEnabled, Mode=OneWay}"></ContentControl>
+        <fa:ImageAwesome Icon="Refresh" Spin="True" Height="50" Width="50" Visibility="{Binding LoaderVisibility, Mode=OneWay}"></fa:ImageAwesome>
+    </Grid>
 </Window>
