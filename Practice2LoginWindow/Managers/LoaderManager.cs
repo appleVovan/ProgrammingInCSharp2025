@@ -9,12 +9,16 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers
     internal class LoaderManager
     {
         private static LoaderManager _instance;
+        private static readonly object _locker = new object();
 
         public static LoaderManager Instance
         {
             get
             {
-                return _instance ??= new LoaderManager();
+                lock (_locker)
+                {
+                    return _instance ??= new LoaderManager();
+                }
             }
         }
 
