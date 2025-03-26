@@ -58,7 +58,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             CurrentViewModel = null;
         }
 
-        private void OnProperyChanged([CallerMemberName]string? name=null)
+        protected void OnProperyChanged([CallerMemberName]string? name=null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
