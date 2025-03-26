@@ -14,9 +14,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers
         {
             get
             {
-                if (_instance != null)
-                    return _instance;
-                return _instance = new LoaderManager();
+                return _instance ??= new LoaderManager();
             }
         }
 
