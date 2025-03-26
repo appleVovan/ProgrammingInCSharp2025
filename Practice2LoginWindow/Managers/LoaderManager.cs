@@ -8,5 +8,21 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers
 {
     internal class LoaderManager
     {
+        private static LoaderManager _instance;
+
+        public static LoaderManager Instance
+        {
+            get
+            {
+                if (_instance != null)
+                    return _instance;
+                return _instance = new LoaderManager();
+            }
+        }
+
+        private LoaderManager()
+        {
+            
+        }
     }
 }
