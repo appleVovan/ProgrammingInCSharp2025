@@ -12,7 +12,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers
     {
         private static LoaderManager _instance;
         private static readonly object _locker = new object();
-        private MainWindowViewModel _loaderOwner;
+        private ILoaderOwner _loaderOwner;
 
         public static LoaderManager Instance
         {
@@ -33,7 +33,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers
         {            
         }
 
-        public void Initialize(MainWindowViewModel loaderOwner)
+        public void Initialize(ILoaderOwner loaderOwner)
         {
             _loaderOwner = loaderOwner;
         }
