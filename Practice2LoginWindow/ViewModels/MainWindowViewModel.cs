@@ -12,7 +12,7 @@ using System.Windows;
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
     
-    class MainWindowViewModel : BaseNavigationViewModel<MainNavigationType>
+    class MainWindowViewModel : BaseNavigationViewModel<MainNavigationType>, ILoaderOwner
     {
         private bool _isEnabled = true;
         private Visibility _loaderVisibility = Visibility.Collapsed;
