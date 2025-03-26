@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Models;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services;
@@ -74,12 +75,17 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
                 try
                 {
+                    LoaderManager.Instance.ShowLoader();
                     authService.RegisterUser(_user);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"User creation failed: {ex.Message}");
                     return;
+                }
+                finally
+                {
+                    LoaderManager.Instance.HideLoader();
                 }
 
                 MessageBox.Show($"User was registered. Please Sign In.");
