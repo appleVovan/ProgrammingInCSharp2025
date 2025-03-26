@@ -64,7 +64,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 try
                 {
                     LoaderManager.Instance.ShowLoader();
-                    user = await Task.Run(() => authService.Authenticate(_user));
+                    user = await authService.Authenticate(_user);
                 }
                 catch (Exception ex)
                 {

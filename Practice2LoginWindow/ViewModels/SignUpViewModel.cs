@@ -65,7 +65,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             CancelCommand ??= new RelayCommand(() => Environment.Exit(0));
         }
 
-        private void SignUp()
+        private async void SignUp()
         {
             if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(FirstName) || String.IsNullOrWhiteSpace(LastName))
                 MessageBox.Show("Login, password, first name or last name is empty");
@@ -76,7 +76,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 try
                 {
                     LoaderManager.Instance.ShowLoader();
-                    authService.RegisterUser(_user);
+                    await authService.RegisterUser(_user);
                 }
                 catch (Exception ex)
                 {
