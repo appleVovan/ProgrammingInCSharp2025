@@ -21,7 +21,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers
                 }
                 lock (_locker)
                 {
-                    return _instance = new LoaderManager();
+                    return _instance ??= new LoaderManager();
                 }
             }
         }
