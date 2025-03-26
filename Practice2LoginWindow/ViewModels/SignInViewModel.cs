@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Models;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
 using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services;
@@ -18,9 +19,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         private UserCandidate _user = new UserCandidate();
 
         private Action _toMainAction;
-
-        private bool _isEnabled = true;
-        private Visibility _loaderVisibility = Visibility.Collapsed;
 
         public string Login
         {
@@ -46,26 +44,6 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         public RelayCommand CancelCommand { get; }
         public AuthNavigationType ViewModelType => AuthNavigationType.SignIn;
 
-        public bool IsEnabled 
-        { 
-            get => _isEnabled;
-            set
-            {
-                _isEnabled = value;
-                OnProperyChanged();
-            }
-        }
-
-        public Visibility LoaderVisibility
-        {
-            get => _loaderVisibility;
-            set
-            {
-                _loaderVisibility = value;
-                OnProperyChanged();
-            }
-        }
-
         public SignInViewModel(Action toSignUp, Action toMain)
         {
             SignInCommand ??= new RelayCommand(SignIn, CanExecute);
@@ -85,8 +63,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 User user = null;
                 try
                 {
-                    IsEnabled = false;
-                    LoaderVisibility = Visibility.Visible;
+                    LoaderManager.Instance.ShowLoader();
                     user = await Task.Run(() => authService.Authenticate(_user));
                 }
                 catch (Exception ex)
@@ -96,8 +73,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 }
                 finally
                 { 
-                    IsEnabled = true; 
-                    LoaderVisibility = Visibility.Collapsed;
+                    LoaderManager.Instance.HideLoader();
                 }
 
                 MessageBox.Show($"Sign in was successful for user {user.FirstName} {user.LastName}!");
