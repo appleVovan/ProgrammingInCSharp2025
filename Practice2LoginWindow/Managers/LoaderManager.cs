@@ -30,5 +30,15 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers
         {
             
         }
+
+        public void ShowLoader()
+        {
+
+        }
+
+        public void HideLoader()
+        {
+
+        }
     }
 }
