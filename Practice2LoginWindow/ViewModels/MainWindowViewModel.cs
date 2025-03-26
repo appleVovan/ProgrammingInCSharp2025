@@ -1,4 +1,5 @@
-﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
+﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         public MainWindowViewModel()
         {
+            LoaderManager.Instance.Initialize(this);
             Navigate(MainNavigationType.Auth);
         }
                 
