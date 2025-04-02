@@ -42,5 +42,23 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Repositories
 
             return JsonSerializer.Deserialize<DBUser>(jsonObj);
         }
+
+        public List<DBUser> GetAll()
+        {
+            var res = new List<DBUser>();
+
+            foreach (var file in Directory.EnumerateFiles(BaseFolder))
+            {
+                string jsonObj;
+                using (StreamReader sr = new StreamReader(file))
+                {
+                    jsonObj = sr.ReadToEnd();
+                }
+
+                res.Add(JsonSerializer.Deserialize<DBUser>(jsonObj));
+            }
+
+            return res;
+        }
     }
 }
