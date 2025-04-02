@@ -19,7 +19,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services
                 throw new ArgumentException("Login or Password is empty!");
             DBUser dBUser = await Storage.GetAsync(userCandidate.Login);
                         
-            if (dBUser == null || dBUser.Login != userCandidate.Login || dBUser.Password == userCandidate.Password)
+            if (dBUser == null || dBUser.Login != userCandidate.Login || dBUser.Password != userCandidate.Password)
                 throw new AuthenticationException("Wrong login or password!");
 
             return new User(dBUser.Guid, dBUser.Login, dBUser.FirstName, dBUser.LastName);
