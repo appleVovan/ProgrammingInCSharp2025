@@ -6,5 +6,19 @@
              xmlns:local="clr-namespace:KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    This is main view
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Margin="10" Text="{Binding CurrentUser, Mode=OneWay}"></TextBlock>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Users, Mode=OneWay}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Login" Binding="{Binding Login}"></DataGridTextColumn>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+                   
+    </Grid>
 </UserControl>
