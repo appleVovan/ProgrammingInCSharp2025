@@ -1,4 +1,5 @@
-﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
+﻿using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Managers;
+using KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,14 +28,19 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             }
         }
 
-        internal void Navigate(TEnum type)
+        internal async Task Navigate(TEnum type)
         {
             if (CurrentViewModel != null && CurrentViewModel.ViewModelType.Equals(type))
                 return;
 
             INavigatable<TEnum> viewModel = GetViewModel(type);
             if (viewModel != null)
+            {
                 CurrentViewModel = viewModel;
+                LoaderManager.Instance.ShowLoader();
+                await CurrentViewModel.Initialize();
+                LoaderManager.Instance.HideLoader();
+            }
         }
 
         private INavigatable<TEnum>? GetViewModel(TEnum type)
