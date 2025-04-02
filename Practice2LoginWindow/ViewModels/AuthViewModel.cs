@@ -17,13 +17,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
         public AuthViewModel(Action exitNavigation)
         {
             _exitNavigation = exitNavigation;
-            Navigate(AuthNavigationType.SignIn);
         }
 
         protected override void ExitNavigation()
         {
             base.ExitNavigation();
-            Navigate(AuthNavigationType.SignIn);
             _exitNavigation.Invoke();
         }
 
@@ -38,6 +36,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 default:
                     return null;
             }
+        }
+
+        public async Task Initialize()
+        {
+            Navigate(AuthNavigationType.SignIn);
         }
     }
 }

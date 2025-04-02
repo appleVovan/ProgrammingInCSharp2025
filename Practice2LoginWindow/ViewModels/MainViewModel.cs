@@ -41,13 +41,22 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 
         public MainViewModel(Action logout)
         {
-            _users = new ObservableCollection<User>(new UserService().GetAllUsers());
+            _users = new ObservableCollection<User>();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnProperyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public async Task Initialize()
+        {
+            var users = await new UserService().GetAllUsers();
+            foreach (var user in users)
+            {
+                _users.Add(user);
+            }
         }
     }
 }

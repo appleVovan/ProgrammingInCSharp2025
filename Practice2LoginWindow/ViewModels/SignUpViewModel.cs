@@ -64,6 +64,10 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             ToSignInCommand = new RelayCommand(toSignIn);
             CancelCommand ??= new RelayCommand(() => Environment.Exit(0));
         }
+        public async Task Initialize()
+        {
+            Password = string.Empty;
+        }
 
         private async void SignUp()
         {

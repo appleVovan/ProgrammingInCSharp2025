@@ -22,5 +22,8 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Navigation
     interface INavigatable<TEnum> where TEnum : Enum
     {
         public TEnum ViewModelType { get; }
+
+        Task Initialize();
+
     }
 }

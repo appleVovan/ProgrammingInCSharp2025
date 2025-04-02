@@ -14,7 +14,7 @@ using System.Windows;
 
 namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
 {
-    class SignInViewModel : INavigatable<AuthNavigationType>, INotifyPropertyChanged
+    class SignInViewModel : INavigatable<AuthNavigationType>
     {
         private UserCandidate _user = new UserCandidate();
 
@@ -52,6 +52,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             _toMainAction = toMain;
         }
 
+        public async Task Initialize()
+        {
+            Password = string.Empty;
+        }
+
         private async void SignIn()
         {
             if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
@@ -65,6 +70,7 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
                 {
                     LoaderManager.Instance.ShowLoader();
                     user = await authService.Authenticate(_user);
+                    ApplicationManager.CurrentUser = user;
                 }
                 catch (Exception ex)
                 {
@@ -92,13 +98,5 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.ViewModels
             SignInCommand.NotifyCanExecuteChanged();
         }
 
-
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler? PropertyChanged;
-        private void OnProperyChanged([CallerMemberName] string? name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        } 
-        #endregion
     }
 }
