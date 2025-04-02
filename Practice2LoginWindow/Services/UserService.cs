@@ -12,11 +12,11 @@ namespace KMA.ProgrammingInCSharp2025.Practice2LoginWindow.Services
     {
         private static FileRepository Repository = new FileRepository();
 
-        public List<User> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
             var res = new List<User>();
 
-            foreach (var dbUser in Repository.GetAll())
+            foreach (var dbUser in await Repository.GetAllAsync())
             {
                 res.Add(new User(dbUser.Guid, dbUser.Login, dbUser.FirstName, dbUser.LastName));
             }
